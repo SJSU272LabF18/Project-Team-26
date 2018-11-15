@@ -1,4 +1,4 @@
-import spell_check
+from nlp import spell_check
 from collections import defaultdict
 from nltk import ngrams
 
@@ -10,7 +10,7 @@ class AutoCompleter(object):
 	n_gram_to_tokens = defaultdict(set)
 	ngram_n = 6
 
-	with open('test.txt','r') as f:
+	with open('nlp/test.txt','r') as f:
 		for line in f:
 			line = line.lower().replace("-", " ").replace("(", " ").replace(")", " ").replace("'", " ").replace("\n","").replace(".","").replace(","," ")
 			six_grams = ngrams(line.split(),ngram_n)
@@ -74,6 +74,10 @@ class AutoCompleter(object):
 		sorted(exercises__scores)
 		return self._filtered_results(list(exercises__scores))
 
-tokens = spell_check.correct_phrase("hello")
-autoComplter = AutoCompleter()
-print(AutoCompleter().guess_exercises(tokens))
+def auto(phrase):
+	tokens = spell_check.correct_phrase(phrase)
+	return AutoCompleter().guess_exercises(tokens)
+
+#tokens = spell_check.correct_phrase("hello")
+#autoComplter = AutoCompleter()
+#print(AutoCompleter().guess_exercises(tokens))

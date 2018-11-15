@@ -1,9 +1,10 @@
 import re
 from collections import Counter
-
+import os
 def words(text): return re.findall(r'\w+', text.lower())
 
-WORDS = Counter(words(open('test.txt').read()))
+print(os.getcwd())
+WORDS = Counter(words(open('nlp/test.txt').read()))
 
 def P(word, N=sum(WORDS.values())): 
     "Probability of `word`."

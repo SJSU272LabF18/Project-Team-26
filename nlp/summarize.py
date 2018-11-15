@@ -42,9 +42,11 @@ def get_summary(article_text,no_of_summary):
     for summary in summary_sentences:
         print(summary)
 
-f = open("test.txt")
-article_text = ""
-for line in f:
-    article_text += line
+    return summary_sentences
 
-get_summary(article_text,7)
+#f = open("test.txt")
+#article_text = ""
+#for line in f:
+    #article_text += line
+
+#get_summary(article_text,7)

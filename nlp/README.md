@@ -15,7 +15,11 @@ use `pip3 install requirements.txt` to install python dependencies.
 
 #### Future work
 
-1. Implement flask_restfull for using nlp functions from front end.
+1. Implement flask_restfull for search results.
 2. Dockerise the nlp module along with flask api.
 3. Deploy it in cloud for public visibility.
+
+#### Starting the python Flask server
+
+1. Use the following command to start the server : `python3 flask_server.py <port_number>` .
 
