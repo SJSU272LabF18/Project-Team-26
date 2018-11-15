@@ -11,7 +11,7 @@ The web application uses three main NLP concepts:
 2. pip3
 3. Python NLTK (NLP framework)
 
-use `pip3 install requirements.txt` to install python dependencies.
+use `pip3 install -r requirements.txt` to install python dependencies.
 
 #### Future work
 
