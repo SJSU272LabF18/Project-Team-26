@@ -26,7 +26,7 @@ class AutoComplete(Resource):
 		phrase = request.args.get('phrase')
 		auto_list = auto(phrase)
 
-		data['suggestions'] = auto_list
+		data['suggestions'] = auto_list[0:10]
 		return Response(response=json.dumps(data),status=200)
 
 class Summarize(Resource):

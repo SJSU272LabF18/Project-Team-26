@@ -1,3 +1,4 @@
 nltk
 Flask
 flask-restful
+pandas
