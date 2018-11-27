@@ -45,7 +45,7 @@ api.add_resource(Summarize,"/summarize/")
 
 def start_server(port):
 	try:
-		app.run(debug=True,port=port)
+		app.run(debug=True,host= '0.0.0.0',port=port)
 	except:
 		print("handling error")
 
