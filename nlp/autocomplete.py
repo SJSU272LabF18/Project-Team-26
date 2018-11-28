@@ -1,4 +1,4 @@
-import spell_check
+from nlp import spell_check
 from collections import defaultdict
 from nltk import ngrams
 
@@ -8,14 +8,17 @@ class AutoCompleter(object):
 	exercise_names = []
 	token_to_exercise_name = defaultdict(list)
 	n_gram_to_tokens = defaultdict(set)
-	ngram_n = 6
+	ngram_n = 3
 
-	with open('test.txt','r') as f:
+	with open('nlp/test.txt','r') as f:
 		for line in f:
 			line = line.lower().replace("-", " ").replace("(", " ").replace(")", " ").replace("'", " ").replace("\n","").replace(".","").replace(","," ")
-			six_grams = ngrams(line.split(),ngram_n)
-			for s in six_grams:
-				exercise_names.append(" ".join(s))
+			three_grams = ngrams(line.split(),ngram_n)
+			try:
+				for s in three_grams:
+					exercise_names.append(" ".join(s))
+			except:
+				continue
 
 	for exercise_name in exercise_names:
 		tokens = exercise_name.split(" ")
@@ -74,6 +77,10 @@ class AutoCompleter(object):
 		sorted(exercises__scores)
 		return self._filtered_results(list(exercises__scores))
 
-tokens = spell_check.correct_phrase("hello")
-autoComplter = AutoCompleter()
-print(AutoCompleter().guess_exercises(tokens))
+def auto(phrase):
+	tokens = spell_check.correct_phrase(phrase)
+	return AutoCompleter().guess_exercises(tokens)
+
+#tokens = spell_check.correct_phrase("hello")
+#autoComplter = AutoCompleter()
+#print(AutoCompleter().guess_exercises(tokens))

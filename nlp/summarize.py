@@ -2,6 +2,8 @@ import re
 import nltk
 import heapq
 
+default = ["No","Summary","Found"]
+
 def get_summary(article_text,no_of_summary):
     article_text = re.sub(r'\[[0-9]*\]', ' ', article_text)  
     article_text = re.sub(r'\s+', ' ', article_text)
@@ -21,7 +23,10 @@ def get_summary(article_text,no_of_summary):
             else:
                 word_frequencies[word] += 1
 
-    maximum_frequncy = max(word_frequencies.values())
+    try:
+        maximum_frequncy = max(word_frequencies.values())
+    except:
+        return ' '.join(default)
 
     for word in word_frequencies.keys():  
         word_frequencies[word] = (word_frequencies[word]/maximum_frequncy)
@@ -39,12 +44,12 @@ def get_summary(article_text,no_of_summary):
     summary_sentences = heapq.nlargest(no_of_summary, sentence_scores, key=sentence_scores.get)
 
     summary = ' '.join(summary_sentences)  
-    for summary in summary_sentences:
-        print(summary)
 
-f = open("test.txt")
-article_text = ""
-for line in f:
-    article_text += line
+    return summary
 
-get_summary(article_text,7)
+#f = open("test.txt")
+#article_text = ""
+#for line in f:
+    #article_text += line
+
+#get_summary(article_text,7)

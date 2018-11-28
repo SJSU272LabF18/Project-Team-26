@@ -1,1 +1,4 @@
-ntlk
+nltk
+Flask
+flask-restful
+pandas

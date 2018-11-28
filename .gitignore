@@ -1,2 +1,7 @@
 .DS_Store
+<<<<<<< HEAD
 /node-modules
+=======
+/node_modules
+nlp/Data
+>>>>>>> 67f3cb482e9f50910c524dcaf5db12ec04d45651
