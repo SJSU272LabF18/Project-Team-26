@@ -17,6 +17,17 @@ Redesign a blogging website to provide smart summaries of each blog in the title
 #### Resources : 
 Python, NLTK, Ealsticsearch 
 
+#### Dataset
+
+##### Original data from kaggle 
+https://drive.google.com/open?id=1svZlU3q0p-fx6Zm-6tRoGrV6FnctFkR5
+
+##### Summarized csv files
+https://drive.google.com/open?id=1eXbQKVANMy7Kh9Nz_ZG-kqKEJ4xHuV2a
+
+##### Summarized json file
+https://drive.google.com/open?id=167oXLXMRzw_PnBxT0dNRBlpsAl2gGQAy
+
 ### Use Cases
 
 #### Use Case Number:
