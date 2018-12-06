@@ -11,11 +11,8 @@ var cors = require("cors");
 app.use(cors({ origin: "http://localhost:3000", credentials: true }));
 
 //set up session variable
-<<<<<<< HEAD
 let data1 ='';
-=======
 
->>>>>>> 67f3cb482e9f50910c524dcaf5db12ec04d45651
 app.use(
   session({
     secret: "linkedin",
@@ -53,7 +50,6 @@ app.post("/search", (req, res) => {
   search.search(req,res);
 });
 
-<<<<<<< HEAD
 app.post('/autocorrect', function(req,res) {
   console.log("body:",req.body.userInput);
   var request = req.body.userInput;
@@ -84,8 +80,6 @@ app.post('/autocorrect', function(req,res) {
 
 });
 
-=======
->>>>>>> 67f3cb482e9f50910c524dcaf5db12ec04d45651
 
 
 console.log("Linked Backend!");
