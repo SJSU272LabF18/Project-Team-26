@@ -3,7 +3,7 @@
 ### Project Idea
 
 #### Project Title : 
-Smarter Blogs  - APPROVED
+San Jose Times (Smarter Blogs)  - APPROVED
 
 #### Project Description : 
 Redesign a blogging website to provide smart summaries of each blog in the title card,improve search results and implement autocomplete on search query to help enhance user experience.
