@@ -3,8 +3,10 @@ from flask_restful import Resource, Api
 from nlp.spell_check import correct_phrase
 from nlp.autocomplete import auto
 from nlp.summarize import get_summary
+from nlp.analyse import get_param,get_recommendations
 import json
 import sys
+import pandas
 
 app = Flask(__name__)
 api = Api(app)
@@ -29,6 +31,20 @@ class AutoComplete(Resource):
 		data['suggestions'] = auto_list[0:10]
 		return Response(response=json.dumps(data),status=200)
 
+class Recommend(Resource):
+
+	def __init__(self):
+		self.df,self.cosine_sim,self.indices = get_param()
+
+	def get(self):
+		data = {}
+		phrase = request.args.get('phrase')
+		phrase = phrase.replace("+"," ")
+		rec_list = get_recommendations(self.df,phrase,self.indices,self.cosine_sim)
+
+		data['titles'] = rec_list.values.tolist()
+		return Response(response=json.dumps(data),status=200)
+
 class Summarize(Resource):
 
 	def post(self):
@@ -41,6 +57,7 @@ class Summarize(Resource):
 
 api.add_resource(SpellCheck,"/spellCheck/")
 api.add_resource(AutoComplete,"/autoComplete/")
+api.add_resource(Recommend,"/recommend/")
 api.add_resource(Summarize,"/summarize/")
 
 def start_server(port):
